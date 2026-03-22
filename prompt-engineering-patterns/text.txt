@@ -1,0 +1,10 @@
+Without CoT: "What is 23 * 47?"
+With CoT: "What is 23 * 47? Think through this step-by-step."
+
+<Callout type="tip" title="When to Use">
+CoT is most effective for math, logic, reasoning, and multi-step problems. For simple factual recall, it adds unnecessary latency.
+</Callout>
+
+## 2. Few-Shot Examples
+
+Provide 2-3 examples of the desired input/output format before your actual query:

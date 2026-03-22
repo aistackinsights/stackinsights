@@ -1,0 +1,10 @@
+End-to-End Execution Loop
+
+1) User sends request to Gateway API.
+2) Orchestrator starts run and appends RunStarted.
+3) Planner returns bounded plan JSON.
+4) Policy Guard evaluates each proposed tool call.
+5) Approved calls execute in Tool Executor.
+6) Observations are appended as immutable events.
+7) Orchestrator finalizes response and appends RunCompleted.
+8) Offline evaluator replays runs for quality/cost/policy scoring.

@@ -1,0 +1,19 @@
+agent_policies:
+  filesystem:
+    allowed_read: ["/home/user/projects", "/tmp/agent-workspace"]
+    allowed_write: ["/tmp/agent-workspace"]
+    deny_patterns: ["*.env", "*secrets*", "*credentials*"]
+
+  network:
+    allowed_hosts: ["api.internal.company.com"]
+    blocked_categories: ["social_media", "file_sharing"]
+    log_all_requests: true
+
+  execution:
+    blocked_commands: ["rm -rf", "curl -X DELETE", "git push --force"]
+    require_approval: ["git push", "docker push", "npm publish"]
+
+  data:
+    pii_detection: true
+    pii_action: "redact_before_cloud"
+    credential_scanning: true

@@ -1,0 +1,3 @@
+## 6. Self-Consistency
+
+Ask the model to generate multiple solutions and pick the best one:

@@ -1,0 +1,3 @@
+## 3. Role Assignment
+
+Set a specific persona to prime the model's knowledge and tone:

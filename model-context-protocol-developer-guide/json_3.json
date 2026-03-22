@@ -1,0 +1,16 @@
+{
+  "name": "code_review",
+  "description": "Review a pull request diff for bugs, security issues, and style violations",
+  "arguments": [
+    {
+      "name": "diff",
+      "description": "The git diff to review",
+      "required": true
+    },
+    {
+      "name": "language",
+      "description": "Programming language of the changed files",
+      "required": false
+    }
+  ]
+}

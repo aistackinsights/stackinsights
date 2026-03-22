@@ -1,0 +1,14 @@
+{
+  "name": "query_database",
+  "description": "Execute a read-only SQL query against the production database. Use this to look up records, aggregate data, or answer questions about stored information.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "sql": {
+        "type": "string",
+        "description": "The SQL query to execute. Must be SELECT only."
+      }
+    },
+    "required": ["sql"]
+  }
+}

@@ -1,0 +1,29 @@
+=== Running Agent ===
+
+  [1] RunStarted — orchestrator
+  [2] PlanGenerated — planner
+  [3] ToolApproved — policy_guard
+  [4] ToolExecuted — tool_executor
+  [5] ObservationCaptured — tool_executor
+  [6] ToolApproved — policy_guard
+  [7] ToolExecuted — tool_executor
+  [8] ObservationCaptured — tool_executor
+  [9] ResponseFinalized — orchestrator
+  [10] RunCompleted — orchestrator
+
+Result: success — Completed 2 steps for goal: Research the latest...
+
+=== Event Log for a3f91c2b ===
+  [1] RunStarted (orchestrator)
+  [2] PlanGenerated (planner)
+  ...
+
+=== Replaying Run ===
+--- REPLAYING run_id=a3f91c2b ---
+Original goal: Research the latest developments...
+Re-running with current code...
+
+--- REPLAY DELTA ---
+Original: 2 steps completed
+New:      2 steps completed
+Regression: False

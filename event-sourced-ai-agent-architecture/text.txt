@@ -1,0 +1,9 @@
+Architecture Flow
+
+User -> Gateway API -> Orchestrator -> Event Store
+                              |-> Planner
+                              |-> Policy Guard -> Tool Executor
+                              |-> Memory Service
+                              |-> Response Builder -> User
+
+Offline Evaluator -> Event Store -> Dashboards/Alerts

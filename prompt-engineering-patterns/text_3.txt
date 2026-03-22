@@ -1,0 +1,3 @@
+## 4. Output Structuring
+
+Explicitly define the output format you expect:

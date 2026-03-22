@@ -1,0 +1,10 @@
+agent/
+├── .env
+├── main.py          # Entry point
+├── db.py            # Event store
+├── models.py        # Pydantic schemas
+├── orchestrator.py  # Run lifecycle
+├── planner.py       # LLM plan generation
+├── policy.py        # Policy guard
+├── tools.py         # Tool executor
+└── replay.py        # Replay engine

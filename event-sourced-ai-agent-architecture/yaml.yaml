@@ -1,0 +1,22 @@
+version: 1
+rules:
+  - name: deny_external_email_without_approval
+    when:
+      tool: send_email
+      input:
+        recipient_domain_not_in: ["yourcompany.com"]
+    action: require_human_approval
+
+  - name: deny_destructive_sql
+    when:
+      tool: query_sql
+      input:
+        sql_matches_regex: "(?i)\\b(delete|drop|truncate|alter)\\b"
+    action: deny
+
+  - name: cap_ticket_creation_rate
+    when:
+      tool: create_ticket
+      run_metrics:
+        tickets_created_gt: 3
+    action: deny
