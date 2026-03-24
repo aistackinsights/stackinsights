@@ -1,0 +1,58 @@
+# .github/workflows/audit.yml
+# Runs pip-audit on every push and pull request to catch vulnerable dependencies
+# before they reach your environments.
+#
+# pip-audit is maintained by PyPA and Trail of Bits with Google support.
+# It checks against the PyPI advisory database and OSV (Open Source Vulnerabilities).
+#
+# Reference: https://aistackinsights.ai/blog/litellm-supply-chain-attack-2026
+
+name: Dependency Audit
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+  schedule:
+    # Run daily at 08:00 UTC to catch newly published advisories
+    - cron: "0 8 * * *"
+
+jobs:
+  pip-audit:
+    name: Audit Python dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Option A: Audit a requirements file (most common)
+      - name: Audit requirements.txt
+        uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+          inputs: requirements.txt
+
+      # Option B: Audit the full installed environment
+      # Uncomment the block below and remove Option A to audit
+      # everything installed in the venv rather than a single file.
+      #
+      # - name: Install dependencies
+      #   run: pip install -r requirements.txt
+      # - name: Audit installed environment
+      #   uses: pypa/gh-action-pip-audit@v1.1.0
+
+      # Option C: Emit a CycloneDX SBOM for compliance/archiving
+      # - name: Audit and emit SBOM
+      #   uses: pypa/gh-action-pip-audit@v1.1.0
+      #   with:
+      #     inputs: requirements.txt
+      #     format: cyclonedx-json
+      #     output: sbom.json
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: sbom
+      #     path: sbom.json
